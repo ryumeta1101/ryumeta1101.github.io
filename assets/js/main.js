@@ -1,10 +1,39 @@
+// BibTeX が枠の幅に収まらないときだけ、下に横移動のスライダーを出す。
+// スマホでは横スクロールのバーが見えず、続きがあることに気づきにくいため
+function addSlider(box) {
+  var pre = box.querySelector("pre");
+  var slider = document.createElement("input");
+  slider.type = "range";
+  slider.min = "0"; slider.max = "1000"; slider.step = "1"; slider.value = "0";
+  slider.className = "bib-slider";
+  slider.hidden = true;
+  slider.setAttribute("aria-label", document.documentElement.lang === "ja" ? "BibTeX を横にスクロール" : "Scroll BibTeX horizontally");
+  box.appendChild(slider);
+
+  var hidden = function () { return pre.scrollWidth - pre.clientWidth; };
+  // 枠の幅や BibTeX のスクロール位置に、スライダーを合わせる
+  var update = function () {
+    var max = hidden();
+    slider.hidden = max <= 1;
+    if (max > 1) slider.value = String(Math.round(pre.scrollLeft / max * 1000));
+  };
+  slider.addEventListener("input", function () {
+    pre.scrollLeft = Number(slider.value) / 1000 * hidden();
+  });
+  pre.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  return update;
+}
+
 // 業績の BibTeX: 表示の切り替えとコピー
 document.querySelectorAll(".bib-toggle").forEach(function (btn) {
   var box = document.getElementById(btn.getAttribute("aria-controls"));
+  var updateSlider = addSlider(box);
   btn.addEventListener("click", function () {
     var open = btn.getAttribute("aria-expanded") === "true";
     btn.setAttribute("aria-expanded", String(!open));
     box.hidden = open;
+    if (!open) updateSlider(); // 開いた時点で、はみ出しているかを測る
   });
 });
 
