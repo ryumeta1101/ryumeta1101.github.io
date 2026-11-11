@@ -65,7 +65,7 @@ HTML を直接ダブルクリックで開いても確認できる。ただし Bi
    git init && git add .
    git commit -m "Initial homepage"
    git branch -M main
-   git remote add origin git@github.com:<ユーザー名>/<ユーザー名>.github.io.git
+   git remote add origin https://github.com/<ユーザー名>/<ユーザー名>.github.io.git
    git push -u origin main
    ```
 3. 数分後に `https://<ユーザー名>.github.io/` で公開される。
