@@ -1,0 +1,10 @@
+# 公開しない作業用メモ（GitHub Pages はリポジトリの中身をすべて公開するため）
+notes/
+
+# 切り抜き前の元写真（ほかの人が写っているので公開しない。サイトは profile.jpg を使う）
+assets/images/unno_photo.jpg
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+.vscode/
