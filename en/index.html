@@ -9,12 +9,17 @@
   <meta property="og:description" content="Recommender systems (financial recommendation, evaluation methodology) — Hokkaido University">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
-  <link rel="alternate" hreflang="ja" href="../">
-  <link rel="alternate" hreflang="en" href="./">
+  <meta property="og:url" content="https://ryumeta1101.github.io/en/">
+  <meta property="og:image" content="https://ryumeta1101.github.io/assets/images/profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://ryumeta1101.github.io/en/">
+  <link rel="alternate" hreflang="ja" href="https://ryumeta1101.github.io/">
+  <link rel="alternate" hreflang="en" href="https://ryumeta1101.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://ryumeta1101.github.io/">
   <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -85,23 +90,23 @@
     <h2>News</h2>
     <ul class="news">
       <li>
-        <time>2026.11</time>
+        <time datetime="2026-11">2026.11</time>
         <span>Presenting a poster at <strong>ICAIF '26</strong> in Milan, Italy (Nov 16–17).</span>
       </li>
       <li>
-        <time>2026.10</time>
+        <time datetime="2026-10">2026.10</time>
         <span>Gave an oral talk at the Hokkaido Section Joint Convention of the Institutes of Electrical and Information Engineers, Japan (Oct 31).</span>
       </li>
       <li>
-        <time>2026.10</time>
+        <time datetime="2026-10">2026.10</time>
         <span>Gave an oral talk at <strong>IEEE GCCE 2026</strong> in Kobe, Japan (Oct 28).</span>
       </li>
       <li>
-        <time>2026.10</time>
+        <time datetime="2026-10">2026.10</time>
         <span>Our paper "One Basket, Many Experts: Decorrelated Re-ranking for Financial Asset Recommendation" was accepted to <strong>ICAIF '26</strong> (acceptance rate: ~22%; in-person presentation rate: under 16%).</span>
       </li>
       <li>
-        <time>2026.08</time>
+        <time datetime="2026-08">2026.08</time>
         <span>Our paper "Impact of Expert-Following Strategies in Financial Asset Recommendation" was accepted to <strong>IEEE GCCE 2026</strong>.</span>
       </li>
     </ul>
@@ -113,13 +118,13 @@
     <p>I study recommender systems, mainly in the following two areas.</p>
     <div class="cards">
       <div class="card">
-        <h4>Financial Recommendation</h4>
+        <h3>Financial Recommendation</h3>
         <p>Recommending financial assets to investors while balancing relevance to their preferences (nDCG) with profitability (ROI, Sharpe ratio).
           I proposed <em>Expert-Following Strategies</em>, which recommend the assets bought by investors with high past returns,
           and <em>DSER</em>, a core–satellite re-ranking that lowers the correlation between recommended assets.</p>
       </div>
       <div class="card">
-        <h4>Evaluation Methodology for Recommender Systems</h4>
+        <h3>Evaluation Methodology for Recommender Systems</h3>
         <p>Examining whether the metrics reported in recommender-system evaluation actually measure different things.
           I quantify the overlap among commonly used accuracy metrics with effective dimensionality and analyze their redundancy and validity.</p>
       </div>
@@ -142,11 +147,12 @@
         <span class="venue">ACM International Conference on AI in Finance (ICAIF '26), Milan, Italy, Nov. 2026.<span class="rate"> (Acceptance rate: ~22%; in-person presentation rate: under 16%)</span><span class="badge">Poster</span></span>
         <div class="pub-links">
           <button class="pub-btn bib-toggle" type="button" aria-expanded="false" aria-controls="bib-icaif">BibTeX</button>
-          <a class="pub-btn" href="https://doi.org/10.1145/3858063.3858783" target="_blank" rel="noopener">DOI</a>
+          <!-- DOI は ACM の登録後（ICAIF 会期後）に有効になる。doi.org で開けるのを確かめてから戻す
+          <a class="pub-btn" href="https://doi.org/10.1145/3858063.3858783" target="_blank" rel="noopener">DOI</a> -->
           <a class="pub-btn" href="https://arxiv.org/abs/2611.05952" target="_blank" rel="noopener">arXiv</a>
         </div>
         <div class="bib-box" id="bib-icaif" hidden>
-          <button class="copy-btn" type="button" data-copied="Copied">Copy</button>
+          <button class="copy-btn" type="button" data-copied="Copied" data-failed="Selected">Copy</button>
 <pre><code>@inproceedings{unno2026onebasket,
   title         = {One Basket, Many Experts: Decorrelated Re-ranking for Financial Asset Recommendation},
   author        = {Unno, Ryuki and Sakurai, Keigo and Watanabe, Koshi and Maeda, Keisuke and Ogawa, Takahiro and Haseyama, Miki},
@@ -170,7 +176,7 @@
           <a class="pub-btn" href="https://arxiv.org/abs/2607.14556" target="_blank" rel="noopener">arXiv</a>
         </div>
         <div class="bib-box" id="bib-gcce" hidden>
-          <button class="copy-btn" type="button" data-copied="Copied">Copy</button>
+          <button class="copy-btn" type="button" data-copied="Copied" data-failed="Selected">Copy</button>
 <pre><code>@inproceedings{unno2026expert,
   title         = {Impact of Expert-Following Strategies in Financial Asset Recommendation},
   author        = {Unno, Ryuki and Watanabe, Koshi and Sakurai, Keigo and Maeda, Keisuke and Ogawa, Takahiro and Haseyama, Miki},
@@ -195,7 +201,7 @@
           <button class="pub-btn bib-toggle" type="button" aria-expanded="false" aria-controls="bib-shibu">BibTeX</button>
         </div>
         <div class="bib-box" id="bib-shibu" hidden>
-          <button class="copy-btn" type="button" data-copied="Copied">Copy</button>
+          <button class="copy-btn" type="button" data-copied="Copied" data-failed="Selected">Copy</button>
 <pre><code>@inproceedings{unno2026redundancy,
   title     = {金融資産推薦における推薦精度指標の冗長性および妥当性に関する分析},
   author    = {海野, 竜輝 and 櫻井, 慶悟 and 渡部, 航史 and 前田, 圭介 and 小川, 貴弘 and 長谷山, 美紀},

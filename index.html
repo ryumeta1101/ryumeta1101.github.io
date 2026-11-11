@@ -9,12 +9,17 @@
   <meta property="og:description" content="推薦システムの研究（金融推薦・評価方法論） — 北海道大学">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
-  <link rel="alternate" hreflang="ja" href="./">
-  <link rel="alternate" hreflang="en" href="en/">
+  <meta property="og:url" content="https://ryumeta1101.github.io/">
+  <meta property="og:image" content="https://ryumeta1101.github.io/assets/images/profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://ryumeta1101.github.io/">
+  <link rel="alternate" hreflang="ja" href="https://ryumeta1101.github.io/">
+  <link rel="alternate" hreflang="en" href="https://ryumeta1101.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://ryumeta1101.github.io/">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -78,23 +83,23 @@
     <h2>ニュース</h2>
     <ul class="news">
       <li>
-        <time>2026.11</time>
+        <time datetime="2026-11">2026.11</time>
         <span><strong>ICAIF '26</strong>（イタリア・ミラノ, 11/16–17）でポスター発表を行います。</span>
       </li>
       <li>
-        <time>2026.10</time>
+        <time datetime="2026-10">2026.10</time>
         <span>電気・情報関係学会北海道支部連合大会で口頭発表しました（10/31）。</span>
       </li>
       <li>
-        <time>2026.10</time>
+        <time datetime="2026-10">2026.10</time>
         <span><strong>IEEE GCCE 2026</strong>（神戸, 10/28）で口頭発表しました。</span>
       </li>
       <li>
-        <time>2026.10</time>
+        <time datetime="2026-10">2026.10</time>
         <span>論文 "One Basket, Many Experts: Decorrelated Re-ranking for Financial Asset Recommendation" が <strong>ICAIF '26</strong> に採択されました（採択率 約22%、現地発表許可率 16%未満）。</span>
       </li>
       <li>
-        <time>2026.08</time>
+        <time datetime="2026-08">2026.08</time>
         <span>論文 "Impact of Expert-Following Strategies in Financial Asset Recommendation" が <strong>IEEE GCCE 2026</strong> に採択されました。</span>
       </li>
     </ul>
@@ -106,11 +111,11 @@
     <p>推薦システムを研究しています。主に次の2つのテーマに取り組んでいます。</p>
     <div class="cards">
       <div class="card">
-        <h4>金融推薦</h4>
+        <h3>金融推薦</h3>
         <p>投資家に金融資産を推薦するタスクで、好みへの適合（nDCG）と収益性（ROI・Sharpe Ratio）の両立を目指します。過去の収益が高い投資家の購入銘柄を推薦する <em>Expert-Following</em> と、推薦リストをコアとサテライトに分けて銘柄間の相関を下げる再ランキング手法 <em>DSER</em> を提案しました。</p>
       </div>
       <div class="card">
-        <h4>推薦システムの評価方法論</h4>
+        <h3>推薦システムの評価方法論</h3>
         <p>推薦システムの評価で報告される指標が、本当に別々のものを測っているのかを検証しています。よく使われる精度指標どうしの重複を実効次元数で定量化し、指標の冗長性と妥当性を分析しています。</p>
       </div>
     </div>
@@ -132,11 +137,12 @@
         <span class="venue">ACM International Conference on AI in Finance (ICAIF '26), Milan, Italy, Nov. 2026.<span class="rate">（採択率 約22%、現地発表許可率 16%未満）</span><span class="badge">ポスター発表</span></span>
         <div class="pub-links">
           <button class="pub-btn bib-toggle" type="button" aria-expanded="false" aria-controls="bib-icaif">BibTeX</button>
-          <a class="pub-btn" href="https://doi.org/10.1145/3858063.3858783" target="_blank" rel="noopener">DOI</a>
+          <!-- DOI は ACM の登録後（ICAIF 会期後）に有効になる。doi.org で開けるのを確かめてから戻す
+          <a class="pub-btn" href="https://doi.org/10.1145/3858063.3858783" target="_blank" rel="noopener">DOI</a> -->
           <a class="pub-btn" href="https://arxiv.org/abs/2611.05952" target="_blank" rel="noopener">arXiv</a>
         </div>
         <div class="bib-box" id="bib-icaif" hidden>
-          <button class="copy-btn" type="button" data-copied="コピーしました">コピー</button>
+          <button class="copy-btn" type="button" data-copied="コピーしました" data-failed="選択しました">コピー</button>
 <pre><code>@inproceedings{unno2026onebasket,
   title         = {One Basket, Many Experts: Decorrelated Re-ranking for Financial Asset Recommendation},
   author        = {Unno, Ryuki and Sakurai, Keigo and Watanabe, Koshi and Maeda, Keisuke and Ogawa, Takahiro and Haseyama, Miki},
@@ -160,7 +166,7 @@
           <a class="pub-btn" href="https://arxiv.org/abs/2607.14556" target="_blank" rel="noopener">arXiv</a>
         </div>
         <div class="bib-box" id="bib-gcce" hidden>
-          <button class="copy-btn" type="button" data-copied="コピーしました">コピー</button>
+          <button class="copy-btn" type="button" data-copied="コピーしました" data-failed="選択しました">コピー</button>
 <pre><code>@inproceedings{unno2026expert,
   title         = {Impact of Expert-Following Strategies in Financial Asset Recommendation},
   author        = {Unno, Ryuki and Watanabe, Koshi and Sakurai, Keigo and Maeda, Keisuke and Ogawa, Takahiro and Haseyama, Miki},
@@ -185,7 +191,7 @@
           <button class="pub-btn bib-toggle" type="button" aria-expanded="false" aria-controls="bib-shibu">BibTeX</button>
         </div>
         <div class="bib-box" id="bib-shibu" hidden>
-          <button class="copy-btn" type="button" data-copied="コピーしました">コピー</button>
+          <button class="copy-btn" type="button" data-copied="コピーしました" data-failed="選択しました">コピー</button>
 <pre><code>@inproceedings{unno2026redundancy,
   title     = {金融資産推薦における推薦精度指標の冗長性および妥当性に関する分析},
   author    = {海野, 竜輝 and 櫻井, 慶悟 and 渡部, 航史 and 前田, 圭介 and 小川, 貴弘 and 長谷山, 美紀},

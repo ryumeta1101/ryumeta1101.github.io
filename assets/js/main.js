@@ -8,21 +8,46 @@ document.querySelectorAll(".bib-toggle").forEach(function (btn) {
   });
 });
 
+// 古い方法でのコピー。file:// で開いたときや、アプリ内ブラウザ（LINE・X など）で
+// Clipboard API が拒否されたときに使う。成功したら true を返す
+function legacyCopy(text) {
+  var ta = document.createElement("textarea");
+  ta.value = text;
+  ta.setAttribute("readonly", "");
+  // 画面外に固定して置く。iPhone は 16px 未満の入力欄で画面を拡大するので 16px にする
+  ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;font-size:16px;";
+  document.body.appendChild(ta);
+  ta.select();
+  ta.setSelectionRange(0, text.length); // iPhone では select() だけでは選択されない
+  var ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+  ta.remove();
+  return ok;
+}
+
 document.querySelectorAll(".copy-btn").forEach(function (btn) {
   var label = btn.textContent;
+  var timer;
+  var show = function (text) {
+    btn.textContent = text;
+    clearTimeout(timer);
+    timer = setTimeout(function () { btn.textContent = label; }, 1500);
+  };
   btn.addEventListener("click", function () {
     var text = btn.parentElement.querySelector("code").textContent;
-    var done = function () {
-      btn.textContent = btn.dataset.copied || "Copied";
-      setTimeout(function () { btn.textContent = label; }, 1500);
+    var done = function () { show(btn.dataset.copied || "Copied"); };
+    var fallback = function () {
+      if (legacyCopy(text)) { done(); return; }
+      // どうしてもコピーできないときは、BibTeX を選択状態にして手動でコピーしてもらう
+      var range = document.createRange();
+      range.selectNodeContents(btn.parentElement.querySelector("code"));
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      show(btn.dataset.failed || "Select & copy");
     };
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done);
+      navigator.clipboard.writeText(text).then(done, fallback);
     } else {
-      // http や file:// で開いたとき用
-      var ta = document.createElement("textarea");
-      ta.value = text; document.body.appendChild(ta); ta.select();
-      try { document.execCommand("copy"); done(); } finally { ta.remove(); }
+      fallback();
     }
   });
 });
@@ -38,8 +63,11 @@ document.querySelectorAll(".copy-btn").forEach(function (btn) {
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       links.forEach(function (a) { a.classList.remove("active"); });
-      byId[e.target.id].classList.add("active");
+      // プロフィール欄（先頭）まで戻ったら、どのリンクも強調しない
+      if (byId[e.target.id]) byId[e.target.id].classList.add("active");
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
   sections.forEach(function (s) { observer.observe(s); });
+  var hero = document.querySelector(".hero");
+  if (hero) observer.observe(hero);
 })();
